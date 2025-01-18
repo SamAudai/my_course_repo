@@ -1,7 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
 {% if user.is_authenticated %}
 </br>
-<button class="btn btn-primary btn-block" data-toggle="collapse" data-target="#exam">ابدأ الامتحان</button>
-<div id="exam" class="collapse">
+<button class="btn btn-primary" data-toggle="collapse" data-target="#exam">ابدأ الامتحان</button>
+<div id="exam">
     <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="POST">
         {% for question in course.question_set.all %}
         <div class="card mt-1">
@@ -21,7 +29,9 @@
             </div>
         </div>
         {% endfor %}
-        <input class="btn btn-success btn-block" type="submit" value="إرسال">
+        <input class="btn btn-success" type="submit" value="إرسال">
     </form>
 </div>
 {% endif %}
+</body>
+</html>

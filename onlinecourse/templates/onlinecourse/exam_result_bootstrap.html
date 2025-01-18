@@ -39,12 +39,12 @@
     {% if grade > 80 %}
     <div class="alert alert-success">
        <!--HINT Display passed info -->
-       <b>مبروك، {{ user.first_name }}!</b> لقد اجتازت الامتحان وأكملت الدورة بدرجة {{ grade }}/100
+       <b class="text-success">مبروك، {{ user.first_name }}! لقد اجتازت الامتحان وأكملت الدورة بدرجة {{ grade }}/100</b>
     </div>
         {% else %}
         <div class="alert alert-danger">
             <!--HINT Display failed info -->
-            <b>راسب</b> عذراً، {{ user.first_name }}! لقد رسبت في الامتحان بدرجة {{ grade }}/100
+            <b class="text-danger">راسب عذراً، {{ user.first_name }}! لقد رسبت في الامتحان بدرجة {{ grade }}/100</b>
         </div>
         <a class="btn btn-link text-danger" href="{% url 'onlinecourse:course_details' course.id %}">Re-test</a>
         {% endif %}
